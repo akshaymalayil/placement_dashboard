@@ -1,0 +1,459 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('../Images/bg.png');
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Default text color */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Login Section Styles */
+.section {
+    width: 30%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    transition: transform 0.2s; /* Animation on hover */
+}
+
+.section:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+h2 {
+    text-align: center;
+    color: #0072ff;
+    margin-bottom: 20px;
+    font-size: 24px; /* Increased font size for headings */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transition for border color */
+}
+
+input:focus {
+    border-color: #0072ff; /* Change border color on focus */
+    outline: none;
+}
+
+.error {
+    color: #ff4c4c; /* Error color */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0072ff; /* Blue background for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #333; /* Text color for remember me */
+}
+
+/* Toggle Password Button */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #0072ff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toggle-password:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .section {
+        width: 100%; /* Full width for smaller screens */
+        margin-bottom: 20px; /* Space between sections on smaller screens */
+    }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 1200px) {
+    .section {
+        width: 25%; /* Make sections narrower on larger screens */
+    }
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #333; /* Color for footer */
+}
+
+
+
+
+/* Register and Login Sections */
+.section {
+    width: 30%; /* Adjust width to fit your layout */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Space between containers */
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #007bff;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+/* Dashboard Container Styles */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.card i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.dashboard-btn {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Buttons */
+.dashboard-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dashboard-btn:hover {
+    background-color: #218838;
+}
+
+/* Input Group Styles */
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+label {
+    margin-left: 5px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .section {
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Specific styling for register and login sections */
+.register {
+    background-color: #e0f7fa; 
+}
+
+.login {
+    background-color: #ffe0b2; 
+}
+
+
+/* Navbar links */
+.navbar-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+    color: #ff4c4c; /* Change color on hover (optional) */
+}
+
+
+
+
+
+/* Profile Page Styling */
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px; 
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease; 
+}
+
+.profile-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow on hover for effect */
+}
+
+.profile-container h2 {
+    text-align: center;
+    margin-bottom: 30px; /* Increased space below title */
+    color: #333;
+    font-weight: bold;
+}
+
+.profile-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px; /* Increased gap between form elements */
+}
+
+.profile-container label {
+    font-weight: bold;
+    color: #444; /* Slightly darker color for better contrast */
+}
+
+.profile-container input,
+.profile-container textarea,
+.profile-container select {
+    width: 100%;
+    padding: 12px; 
+    margin-top: 5px;
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    transition: border-color 0.3s ease; /* Transition for border effect */
+}
+
+.profile-container input:focus,
+.profile-container textarea:focus,
+.profile-container select:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+.profile-container .profile-image-upload {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 15px; /
+}
+
+.profile-container .profile-image-upload img {
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #007bff; 
+    margin-bottom: 15px; 
+}
+
+.profile-container .profile-image-upload input {
+    padding: 8px; 
+    margin-top: 10px;
+}
+
+.profile-container button {
+    grid-column: span 2;
+    padding: 15px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    margin-top: 30px; 
+    font-size: 16px; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.profile-container button:hover {
+    background-color: #218838; 
+    transform: translateY(-2px); 
+}
+
+.profile-container h3 {
+    grid-column: span 2;
+    color: #555; 
+    margin-top: 40px; 
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    font-weight: normal; 
+}

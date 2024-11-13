@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Enabled Placement Portal - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login to Portal</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <small id="usernameError" class="error"></small>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+                <small id="passwordError" class="error"></small>
+            </div>
+            <div class="input-group remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <a href="/signup" class="link">Don't have an account? Sign Up</a>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleBtn = document.querySelector('.toggle-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleBtn.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                toggleBtn.textContent = 'Show';
+            }
+        }
+
+        // Form submission with basic validation
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent normal form submission
+
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let valid = true;
+
+            // Clear previous errors
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            // Validate username
+            if (username === '') {
+                document.getElementById('usernameError').textContent = 'Username is required';
+                valid = false;
+            }
+
+            // Validate password
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                valid = false;
+            }
+
+            // If valid, redirect to dashboard
+            if (valid) {
+                // Simulate login validation (replace with actual authentication)
+                if (username === 'testuser' && password === 'password123') {
+                    // Check if Remember Me is checked
+                    const rememberMe = document.getElementById('rememberMe').checked;
+                    if (rememberMe) {
+                        localStorage.setItem('rememberMe', 'true');
+                    }
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('Invalid username or password');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #4CAF50; }
+        .section { margin-bottom: 20px; }
+        .section h3 { margin-bottom: 5px; color: #333; }
+        .field { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Profile Information</h2>
+
+    <!-- Contact Information Section -->
+    <div class="section">
+        <h3>Contact Information</h3>
+        <p><span class="field">Name:</span> <span id="name">--</span></p>
+        <p><span class="field">Phone:</span> <span id="phone">--</span></p>
+        <p><span class="field">Email:</span> <span id="email">--</span></p>
+        <p><span class="field">LinkedIn:</span> <span id="linkedin">--</span></p>
+        <p><span class="field">Location:</span> <span id="location">--</span></p>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="section">
+        <h3>Summary</h3>
+        <p id="summary">--</p>
+    </div>
+
+    <!-- Education Section -->
+    <div class="section">
+        <h3>Education</h3>
+        <p><span class="field">Degree:</span> <span id="degree">--</span></p>
+        <p><span class="field">University:</span> <span id="university">--</span></p>
+        <p><span class="field">Graduation Date:</span> <span id="graduation_date">--</span></p>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="section">
+        <h3>Skills</h3>
+        <p><span class="field">Programming Languages:</span> <span id="programming_languages">--</span></p>
+        <p><span class="field">Software Tools:</span> <span id="software_tools">--</span></p>
+        <p><span class="field">Technical Skills:</span> <span id="technical_skills">--</span></p>
+    </div>
+
+    <!-- Work Experience Section -->
+    <div class="section">
+        <h3>Work Experience</h3>
+        <ul id="experience">
+            <li>--</li> <!-- Experience entries will be dynamically populated here -->
+        </ul>
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="section">
+        <h3>Certifications</h3>
+        <ul id="certifications">
+            <li>--</li> <!-- Certifications entries will be dynamically populated here -->
+        </ul>
+    </div>
+
+    <!-- Extracurricular Activities Section -->
+    <div class="section">
+        <h3>Extracurricular Activities</h3>
+        <p id="extracurricular_activities">--</p>
+    </div>
+
+    <!-- Awards and Honors Section -->
+    <div class="section">
+        <h3>Awards and Honors</h3>
+        <p id="awards_honors">--</p>
+    </div>
+
+    <!-- Volunteer Experience Section -->
+    <div class="section">
+        <h3>Volunteer Experience</h3>
+        <p id="volunteer_experience">--</p>
+    </div>
+
+    <!-- Languages Section -->
+    <div class="section">
+        <h3>Languages</h3>
+        <p id="languages">--</p>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import re
+import spacy
+from pdfminer.high_level import extract_text
+
+# Load spaCy NLP model
+nlp = spacy.load("en_core_web_sm")
+
+# Function to extract text from PDF
+def extract_text_from_pdf(pdf_path):
+    return extract_text(pdf_path)
+
+# Function to extract contact information
+def extract_contact_info(text):
+    name = "--"
+    phone = "--"
+    email = "--"
+    linkedin = "--"
+    location = "--"
+    
+    # Search for email and phone number
+    email_match = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", text)
+    phone_match = re.search(r"\+?\d[\d -]{8,12}\d", text)
+    
+    # Extract email and phone if found
+    if email_match:
+        email = email_match.group(0)
+    if phone_match:
+        phone = phone_match.group(0)
+    
+    # Extract name and location using spaCy entities
+    doc = nlp(text)
+    for ent in doc.ents:
+        if ent.label_ == "PERSON" and name == "--":
+            name = ent.text
+        elif ent.label_ == "GPE" and location == "--":  # Location entity
+            location = ent.text
+    
+    # Search for LinkedIn profile link
+    linkedin_match = re.search(r"(https?://www\.linkedin\.com/in/[A-Za-z0-9-]+)", text)
+    if linkedin_match:
+        linkedin = linkedin_match.group(0)
+    
+    return {"name": name, "phone": phone, "email": email, "linkedin": linkedin, "location": location}
+
+# Function to extract education details
+def extract_education(text):
+    degree = "--"
+    university = "--"
+    grad_date = "--"
+    
+    # Extracting degree and university based on keywords
+    degree_match = re.search(r"(Bachelor|Master|Engineer|B\.Tech|M\.Tech)", text)
+    if degree_match:
+        degree = degree_match.group(0)
+    
+    # Extracting graduation date
+    grad_date_match = re.search(r"(20\d{2})", text)
+    if grad_date_match:
+        grad_date = grad_date_match.group(0)
+    
+    # Using spaCy for organization detection as university
+    doc = nlp(text)
+    for ent in doc.ents:
+        if ent.label_ == "ORG":
+            university = ent.text
+            break
+    
+    return {"degree": degree, "university": university, "graduation_date": grad_date}
+
+# Function to extract skills
+def extract_skills(text):
+    skills = {
+        "programming_languages": [],
+        "software_tools": [],
+        "technical_skills": []
+    }
+    
+    # Define common keywords for skills (can be expanded)
+    programming_languages = ["C++", "Java", "Python", "SQL", "MongoDB", "HTML", "CSS"]
+    software_tools = ["MATLAB", "AutoCAD", "SolidWorks"]
+    technical_skills = ["circuit design", "3D modelling", "data analysis"]
+    
+    # Search for skills
+    for lang in programming_languages:
+        if lang in text:
+            skills["programming_languages"].append(lang)
+    for tool in software_tools:
+        if tool in text:
+            skills["software_tools"].append(tool)
+    for skill in technical_skills:
+        if skill in text:
+            skills["technical_skills"].append(skill)
+    
+    # Fill missing fields with "--"
+    for key in skills:
+        if not skills[key]:
+            skills[key] = ["--"]
+    
+    return skills
+
+# Function to extract experience details
+def extract_experience(text):
+    experience = []
+    
+    # Regular expressions for job titles, companies, and dates
+    job_title_match = re.findall(r"[A-Za-z\s]+ – [A-Za-z\s]+, [A-Za-z\s]+", text)
+    if job_title_match:
+        for job in job_title_match:
+            experience.append(job)
+    
+    if not experience:
+        experience = ["--"]
+    
+    return experience
+
+# Main function to process resume
+def process_resume(pdf_path):
+    text = extract_text_from_pdf(pdf_path)
+    contact_info = extract_contact_info(text)
+    education = extract_education(text)
+    skills = extract_skills(text)
+    experience = extract_experience(text)
+    
+    # Compile the final resume data
+    resume_data = {
+        "contact_info": contact_info,
+        "summary": "--",  # Assume no summary provided unless further processing is specified
+        "education": education,
+        "skills": skills,
+        "experience": experience,
+        "certifications": ["--"],  # Placeholder for simplicity
+        "extracurricular_activities": ["--"],  # Optional
+        "awards_honors": ["--"],  # Optional
+        "volunteer_experience": ["--"],  # Optional
+        "languages": ["--"]  # Optional
+    }
+    
+    return resume_data
+
+# Run the resume reader on the provided PDF file
+pdf_path = "RESUME.pdf"  # Replace with actual path
+resume_data = process_resume(pdf_path)
+print(resume_data)
+

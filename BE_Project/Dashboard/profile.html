@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #4CAF50; }
+        .section { margin-bottom: 20px; }
+        .section h3 { margin-bottom: 5px; color: #333; }
+        .field { font-weight: bold; }
+        .upload-section { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Resume Upload Section -->
+    <div class="upload-section">
+        <h2>Upload Resume</h2>
+        <input type="file" id="resumeUpload" accept=".pdf">
+        <button onclick="processResume()">Upload and Process</button>
+    </div>
+
+    <h2>Profile Information</h2>
+
+    <!-- Profile Details -->
+    <div class="section">
+        <h3>Contact Information</h3>
+        <p><span class="field">Name:</span> <span id="name">--</span></p>
+        <p><span class="field">Phone:</span> <span id="phone">--</span></p>
+        <p><span class="field">Email:</span> <span id="email">--</span></p>
+        <p><span class="field">LinkedIn:</span> <span id="linkedin">--</span></p>
+        <p><span class="field">Location:</span> <span id="location">--</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Objective/Summary</h3>
+        <p id="summary">--</p>
+    </div>
+
+    <div class="section">
+        <h3>Education</h3>
+        <p><span class="field">Degree:</span> <span id="degree">--</span></p>
+        <p><span class="field">University:</span> <span id="university">--</span></p>
+        <p><span class="field">Graduation Date:</span> <span id="graduation_date">--</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Skills</h3>
+        <p><span class="field">Programming Languages:</span> <span id="programming_languages">--</span></p>
+        <p><span class="field">Software Tools:</span> <span id="software_tools">--</span></p>
+        <p><span class="field">Technical Skills:</span> <span id="technical_skills">--</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Work Experience</h3>
+        <ul id="experience">
+            <li>--</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Certifications</h3>
+        <ul id="certifications">
+            <li>--</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Extracurricular Activities</h3>
+        <p id="extracurricular_activities">--</p>
+    </div>
+
+    <div class="section">
+        <h3>Awards and Honors</h3>
+        <p id="awards_honors">--</p>
+    </div>
+
+    <div class="section">
+        <h3>Volunteer Experience</h3>
+        <p id="volunteer_experience">--</p>
+    </div>
+
+    <div class="section">
+        <h3>Languages</h3>
+        <p id="languages">--</p>
+    </div>
+
+    <script>
+        // Sample function to process uploaded resume
+        function processResume() {
+            const fileInput = document.getElementById("resumeUpload");
+            const file = fileInput.files[0];
+
+            if (file) {
+                // Placeholder for actual resume processing logic
+                const resumeData = {
+                    contact_info: {
+                        name: "John Doe",
+                        phone: "123-456-7890",
+                        email: "john.doe@example.com",
+                        linkedin: "https://linkedin.com/in/johndoe",
+                        location: "New York, USA"
+                    },
+                    summary: "Aspiring software engineer with a passion for developing scalable applications.",
+                    education: {
+                        degree: "Bachelor of Science in Computer Science",
+                        university: "University of Example",
+                        graduation_date: "2023"
+                    },
+                    skills: {
+                        programming_languages: ["Python", "JavaScript", "C++"],
+                        software_tools: ["Git", "Docker", "Jenkins"],
+                        technical_skills: ["Data Analysis", "Machine Learning"]
+                    },
+                    experience: [
+                        "Software Engineer at XYZ Corp (2021 - Present)",
+                        "Intern at ABC Inc (2020 - 2021)"
+                    ],
+                    certifications: [
+                        "Certified Kubernetes Administrator",
+                        "AWS Certified Solutions Architect"
+                    ],
+                    extracurricular_activities: "Volunteered as a mentor for Code for Good initiative.",
+                    awards_honors: "Recipient of the Dean’s List Award.",
+                    volunteer_experience: "Volunteer at Local Animal Shelter (2022)",
+                    languages: "English (Fluent), Spanish (Intermediate)"
+                };
+
+                populateProfile(resumeData);
+            } else {
+                alert("Please upload a resume.");
+            }
+        }
+
+        // Function to populate profile fields from JSON data
+        function populateProfile(data) {
+            document.getElementById("name").textContent = data.contact_info.name || "--";
+            document.getElementById("phone").textContent = data.contact_info.phone || "--";
+            document.getElementById("email").textContent = data.contact_info.email || "--";
+            document.getElementById("linkedin").textContent = data.contact_info.linkedin || "--";
+            document.getElementById("location").textContent = data.contact_info.location || "--";
+            document.getElementById("summary").textContent = data.summary || "--";
+            document.getElementById("degree").textContent = data.education.degree || "--";
+            document.getElementById("university").textContent = data.education.university || "--";
+            document.getElementById("graduation_date").textContent = data.education.graduation_date || "--";
+            document.getElementById("programming_languages").textContent = data.skills.programming_languages.join(", ") || "--";
+            document.getElementById("software_tools").textContent = data.skills.software_tools.join(", ") || "--";
+            document.getElementById("technical_skills").textContent = data.skills.technical_skills.join(", ") || "--";
+
+            // Populate experience list
+            const experienceList = document.getElementById("experience");
+            experienceList.innerHTML = "";
+            data.experience.forEach(exp => {
+                const li = document.createElement("li");
+                li.textContent = exp;
+                experienceList.appendChild(li);
+            });
+
+            // Populate certifications list
+            const certificationsList = document.getElementById("certifications");
+            certificationsList.innerHTML = "";
+            data.certifications.forEach(cert => {
+                const li = document.createElement("li");
+                li.textContent = cert;
+                certificationsList.appendChild(li);
+            });
+
+            document.getElementById("extracurricular_activities").textContent = data.extracurricular_activities || "--";
+            document.getElementById("awards_honors").textContent = data.awards_honors || "--";
+            document.getElementById("volunteer_experience").textContent = data.volunteer_experience || "--";
+            document.getElementById("languages").textContent = data.languages || "--";
+        }
+    </script>
+
+</body>
+</html>

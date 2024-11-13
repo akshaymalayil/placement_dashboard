@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Enabled Placement Portal - Login</title>
+    <link rel="stylesheet" href="../Styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Student Login Section -->
+        <div class="section student-container">
+            <h2>Login as Student</h2>
+            <form id="studentLoginForm">
+                <div class="input-group">
+                    <input type="text" id="studentUsername" placeholder="Username" required>
+                    <small class="error" id="studentUsernameError"></small>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="studentPassword" placeholder="Password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('studentPassword')">Show</button>
+                    <small class="error" id="studentPasswordError"></small>
+                </div>
+                <div class="input-group remember-me">
+                    <input type="checkbox" id="studentRememberMe">
+                    <label for="studentRememberMe">Remember Me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Faculty Login Section -->
+        <div class="section faculty-container">
+            <h2>Login as Faculty</h2>
+            <form id="facultyLoginForm">
+                <div class="input-group">
+                    <input type="text" id="facultyUsername" placeholder="Username" required>
+                    <small class="error" id="facultyUsernameError"></small>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="facultyPassword" placeholder="Password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('facultyPassword')">Show</button>
+                    <small class="error" id="facultyPasswordError"></small>
+                </div>
+                <div class="input-group remember-me">
+                    <input type="checkbox" id="facultyRememberMe">
+                    <label for="facultyRememberMe">Remember Me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Industry/Company Login Section -->
+        <div class="section industry-container">
+            <h2>Login as Industry/Company</h2>
+            <form id="industryLoginForm">
+                <div class="input-group">
+                    <input type="text" id="industryUsername" placeholder="Username" required>
+                    <small class="error" id="industryUsernameError"></small>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="industryPassword" placeholder="Password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('industryPassword')">Show</button>
+                    <small class="error" id="industryPasswordError"></small>
+                </div>
+                <div class="input-group remember-me">
+                    <input type="checkbox" id="industryRememberMe">
+                    <label for="industryRememberMe">Remember Me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link to the external JS file -->
+    <script src="../Script/login.js"></script>
+</body>
+</html>
